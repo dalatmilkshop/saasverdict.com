@@ -54,6 +54,9 @@
         .use-case strong { font-size: 1.4rem; color: #fff; display: block; margin-bottom: 0.5rem; }
 
         footer { background: #000; padding: 6rem 0; text-align: center; border-top: 1px solid var(--border); }
+        .footer-links { margin-top: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 1.5rem; }
+        .footer-links a { color: #94a3b8; text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--p); }
         .toast { position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%); background: var(--a); color: #000; padding: 15px 40px; border-radius: 100px; font-weight: 900; display: none; z-index: 10000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
     </style>
 </head>
@@ -182,6 +185,12 @@ def launch_stealth_session(profile_id):
         <div class="container">
             <a href="/" class="logo">SaaS<span>Verdict</span></a>
             <p>Authored by <b>Engineer K</b> | Senior Infrastructure & Automation Specialist.</p>
+            <div class="footer-links" aria-label="Official SaaSVerdict links">
+                <a href="https://www.youtube.com/@saasverdictcom" target="_blank" rel="noopener noreferrer">YouTube</a>
+                <a href="https://www.linkedin.com/company/saasverdict" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://www.trustpilot.com/review/saasverdict.com" target="_blank" rel="noopener noreferrer">Trustpilot Reviews</a>
+                <a href="mailto:admin@saasverdict.com">admin@saasverdict.com</a>
+            </div>
             <p style="margin-top: 3rem; color: #475569; font-size: 0.9rem;">
                 Official Global Partner of Multilogin. Technical support and custom scripts available for referrals.<br>
                 Links are affiliate-based. Use verified code <b>SAAS50</b> to secure your discount.
