@@ -73,6 +73,14 @@
                                 "@type": "Answer",
                                 "text": "No. Start with a minimal baseline and add arguments only when a repeated test proves a specific need, then re-validate for drift."
                             }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "What proof should I collect before recommending an affiliate stack?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Collect at least three repeated clean sessions with detection checks, connection leak checks, worker parity checks, and a rollback plan before adding affiliate recommendations."
+                            }
                         }
                     ]
         }
@@ -238,6 +246,63 @@
             <p class="small">Baseline first, then add optional flags only when the failure mode is reproducible in your detection and connection test bundles.</p>
         </section>
 
+        <section class="section">
+            <p class="section-kicker">Field SOP (2026)</p>
+            <h2>Antidetection Tips to Production Workflow</h2>
+            <p>Use this sequence for legitimate QA and reliability work. It is designed to prevent false confidence, reduce incident cost, and keep affiliate recommendations evidence-based.</p>
+            <div class="timeline">
+                <div class="timeline-step"><b>Step 1:</b> Define a signal contract across browser runtime, network, worker context, and behavior traces.</div>
+                <div class="timeline-step"><b>Step 2:</b> Run a minimal launch baseline first, then add overrides only after reproducible failures.</div>
+                <div class="timeline-step"><b>Step 3:</b> Validate repeated sessions and collect drift evidence before scale or procurement.</div>
+                <div class="timeline-step"><b>Step 4:</b> Publish pass and fail notes first, then route readers to compare and checkout options.</div>
+            </div>
+            <div class="table-wrap" style="margin-top: 1rem;">
+                <table class="table-compact">
+                    <thead>
+                        <tr>
+                            <th>Signal layer</th>
+                            <th>What to verify</th>
+                            <th>Practical pass rule</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Browser runtime</td>
+                            <td>User-agent, language, timezone, screen, and GPU story consistency</td>
+                            <td>No critical contradictions between header and JS-visible values</td>
+                        </tr>
+                        <tr>
+                            <td>Network and WebRTC</td>
+                            <td>IP geo, DNS geo, and leak profile across repeated sessions</td>
+                            <td>No high-risk leak in your connection test bundle</td>
+                        </tr>
+                        <tr>
+                            <td>Worker parity</td>
+                            <td>Timezone, language, user-agent, hardwareConcurrency, GPU availability in worker</td>
+                            <td>Worker and main-thread signals remain coherent</td>
+                        </tr>
+                        <tr>
+                            <td>Navigation provenance</td>
+                            <td>Referrer path and history depth signals including <code>window.history.length</code></td>
+                            <td>Behavior path reflects expected acquisition channel</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <ul class="clean" style="margin-top: 1rem;">
+                <li>Run at least 3 clean sessions for each target flow before scaling.</li>
+                <li>Store screenshots and logs for differences, not only pass or fail labels.</li>
+                <li>Pause rollout when critical drift appears after browser, proxy, or library updates.</li>
+                <li>Only add affiliate recommendations after evidence is stable and reproducible.</li>
+            </ul>
+            <div class="hero-actions">
+                <a class="btn btn-ghost" href="/guides/detection-tests/">Detection tests guide</a>
+                <a class="btn btn-ghost" href="/guides/connection-leak-tests/">Connection leak tests guide</a>
+                <a class="btn btn-ghost" href="/compare/">Compare hub</a>
+                <a class="btn btn-primary" href="/tools/multilogin-discount/">Evidence-first SAAS50 framework</a>
+            </div>
+        </section>
+
         <section class="section grid-2">
             <article class="card">
                 <h2>High-Confidence Baseline</h2>
@@ -339,6 +404,10 @@ checkout_policy:
                 <details>
                     <summary>Should I enable all Chrome launch arguments at once?</summary>
                     <p>No. Start from a minimal baseline and add arguments only when a repeated test proves a concrete need.</p>
+                </details>
+                <details>
+                    <summary>What proof should I collect before recommending an affiliate stack?</summary>
+                    <p>Collect at least three repeated clean sessions with detection checks, connection leak checks, worker parity checks, and a rollback plan.</p>
                 </details>
                 <details>
                     <summary>Is lower monthly price always better?</summary>

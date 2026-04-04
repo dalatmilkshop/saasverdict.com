@@ -229,5 +229,86 @@ Worker is another sneaky way to detect real browser data, as you can't modify ob
 * Hardware Concurrency ( `navigator.hardwareConcurrency` )
 * [GPU data](https://developer.mozilla.org/en-US/docs/Web/API/WorkerNavigator/gpu) (except Linux & Firefox upd 30.01.2024)
 
+# Practical anti-detection ops (2026): value first, affiliate second
+
+For legal QA, account safety, and reliability testing only.
+
+## 1) Define a signal contract before coding
+
+Write down what "consistent" means for each layer before you launch anything:
+
+* Browser runtime: user-agent, language, timezone, screen, GPU, platform
+* Network layer: IP geo, DNS geo, WebRTC policy, TLS/client hints profile
+* Worker layer: timezone/language/user-agent/hardwareConcurrency/GPU should not contradict main thread story
+* Behavior layer: referrer path, history depth, dwell time, click rhythm
+
+If one layer says one thing and another says something else, detection risk rises quickly.
+
+## 2) Start with a minimal launch baseline
+
+Do not stack random flags. Keep baseline small, then add only after reproducible failures.
+
+* Use real Chrome via `executablePath` (not random Chromium builds)
+* Keep `userDataDir` + `--profile-directory` together
+* Use `--accept-lang` only with matching JS/runtime language surfaces
+* Use `--user-agent` only if headers + runtime are aligned end-to-end
+* Use extension flags in pair:
+  * `--disable-extensions-except=${EXTENSION_PATH}`
+  * `--load-extension=${EXTENSION_PATH}`
+* Keep optional troubleshooting flags off by default:
+  * `--disable-site-isolation-trials`
+  * `--aggressive-cache-discard`
+  * `--disable-gpu`
+
+## 3) Add worker parity checks as a hard gate
+
+Worker context is often where sloppy setups get exposed.
+
+| Surface | Main thread check | Worker check | Pass rule |
+|---|---|---|---|
+| Timezone | `Intl.DateTimeFormat().resolvedOptions().timeZone` | same API in worker | Same value or expected region family |
+| Language | `navigator.language` | `navigator.language` | Same primary locale |
+| User agent | `navigator.userAgent` | `navigator.userAgent` | Same browser family and version family |
+| CPU threads | `navigator.hardwareConcurrency` | `navigator.hardwareConcurrency` | No impossible jump |
+| GPU exposure | `navigator.gpu` presence | `navigator.gpu` presence | Consistent availability model |
+
+Quick worker probe:
+
+```js
+const workerCode = `
+self.onmessage = () => postMessage({
+  tz: Intl.DateTimeFormat().resolvedOptions().timeZone,
+  lang: navigator.language,
+  ua: navigator.userAgent,
+  hc: navigator.hardwareConcurrency,
+  hasGpu: !!navigator.gpu
+});`;
+const blob = new Blob([workerCode], { type: 'application/javascript' });
+const worker = new Worker(URL.createObjectURL(blob));
+worker.onmessage = (e) => console.log('worker-signals', e.data);
+worker.postMessage('run');
+```
+
+## 4) Use release gates, not feelings
+
+Before scaling traffic or recommending any paid stack:
+
+* Run at least 3 clean sessions per target flow
+* Run fingerprint + connection tests in each session
+* Store logs/screenshots for diff, not just pass/fail notes
+* Block rollout if critical drift appears in worker/network/runtime signals
+* Re-run the same gates after browser/lib/proxy updates
+
+## 5) Reader-first affiliate SOP (how to monetize without killing trust)
+
+Do this sequence in public:
+
+1. Show exactly what passed and what failed.
+2. Explain maintenance cost and known weak points.
+3. Publish your "when not to buy" criteria.
+4. Only then add compare + discount + checkout links.
+
+Simple rule: no stable evidence, no affiliate push. Trust compounds faster than short-term conversion.
+
 
 
