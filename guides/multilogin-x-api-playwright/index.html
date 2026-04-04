@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multilogin X API + Playwright Setup Guide (2026) | SaaSVerdict</title>
+    <meta name="description" content="Production-focused guide to launch Multilogin X profiles via API, connect Playwright over CDP, handle timeout errors and close profiles safely.">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://saasverdict.com/guides/multilogin-x-api-playwright/">
+    <meta property="og:title" content="Multilogin X API + Playwright Setup Guide">
+    <meta property="og:description" content="Reliable launch, connection, timeout handling and cleanup patterns.">
+    <meta property="og:url" content="https://saasverdict.com/guides/multilogin-x-api-playwright/">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/site.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Multilogin X API + Playwright Setup Guide",
+      "dateModified": "2026-04-03",
+      "author": {"@type": "Organization", "name": "SaaSVerdict"},
+      "publisher": {"@type": "Organization", "name": "SaaSVerdict"},
+      "mainEntityOfPage": "https://saasverdict.com/guides/multilogin-x-api-playwright/"
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a href="/" class="logo">SaaS<span>Verdict</span></a>
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="/tools/">Tools</a>
+                <a href="/compare/">Compare</a>
+                <a href="/guides/" aria-current="page">Guides</a>
+                <a href="/about/">About</a>
+                <a href="/contact/">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="container">
+        <p class="breadcrumb"><a href="/">Home</a> / <a href="/guides/">Guides</a> / Multilogin X API + Playwright</p>
+
+        <section class="hero">
+            <span class="badge">Engineering Playbook</span>
+            <h1>Multilogin X API + Playwright: Reliable Profile Automation</h1>
+            <p class="lead">This guide focuses on stable launch logic, timeout control, dynamic profile IDs and clean shutdown routines for production browser automation stacks.</p>
+        </section>
+
+        <section class="section">
+            <div class="panel">
+                <h2>1) Start Profile via API</h2>
+                <p>Use the local endpoint to boot a profile in automation mode and return a CDP address.</p>
+                <pre><code>GET /api/v1/profile/start?automation=true&amp;profileId={PROFILE_ID}</code></pre>
+                <p class="small">Expected key: <code>automation.remote_debugging_address</code></p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="panel">
+                <h2>2) Python + Playwright Template</h2>
+                <pre><code>import requests
+from playwright.sync_api import sync_playwright, TimeoutError as PWTimeout
+
+API_BASE = "http://127.0.0.1:35000"
+
+def start_profile(profile_id, timeout=60):
+    url = f"{API_BASE}/api/v1/profile/start"
+    params = {"automation": "true", "profileId": profile_id}
+    resp = requests.get(url, params=params, timeout=timeout)
+    resp.raise_for_status()
+    data = resp.json()
+    cdp = data.get("automation", {}).get("remote_debugging_address")
+    if not cdp:
+        raise RuntimeError(f"Missing remote_debugging_address: {data}")
+    return cdp if cdp.startswith("http") else f"http://{cdp}"
+
+def stop_profile(profile_id, timeout=30):
+    url = f"{API_BASE}/api/v1/profile/stop"
+    requests.get(url, params={"profileId": profile_id}, timeout=timeout)
+
+def run_task(profile_id):
+    cdp = None
+    try:
+        cdp = start_profile(profile_id)
+        with sync_playwright() as p:
+            browser = p.chromium.connect_over_cdp(cdp, timeout=45000)
+            context = browser.contexts[0] if browser.contexts else browser.new_context()
+            page = context.pages[0] if context.pages else context.new_page()
+            page.set_default_timeout(45000)
+            page.goto("https://example.com", wait_until="domcontentloaded")
+            print(page.title())
+            browser.close()
+    except (requests.Timeout, PWTimeout) as exc:
+        print(f"Timeout error: {exc}")
+    except Exception as exc:
+        print(f"Automation error: {exc}")
+    finally:
+        stop_profile(profile_id)
+</code></pre>
+                <p class="small">Always enforce <code>finally</code> cleanup so profiles are stopped even when a script fails.</p>
+            </div>
+        </section>
+
+        <section class="section grid-2">
+            <article class="card">
+                <h2>Timeout Handling Notes</h2>
+                <ul class="clean">
+                    <li>API request timeout protects against hung local services.</li>
+                    <li>CDP timeout protects browser connection stage.</li>
+                    <li>Page timeout protects navigation/action stages.</li>
+                </ul>
+            </article>
+            <article class="card">
+                <h2>Operational Safety Notes</h2>
+                <ul class="clean">
+                    <li>Track profile IDs per job for deterministic cleanup.</li>
+                    <li>Avoid force-killing profiles without stop endpoint.</li>
+                    <li>Log API payload shape changes for quick debugging.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="section">
+            <div class="related-links" aria-label="Related links">
+                <a href="/guides/browser-fingerprint-checklist/">Fingerprint checklist</a>
+                <a href="/compare/">Comparison hub</a>
+                <a href="/tools/">Pricing and offer page</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container"><p class="small">© <span data-year></span> SaaSVerdict.</p></div>
+    </footer>
+
+    <script src="/assets/js/site.js" defer></script>
+</body>
+</html>

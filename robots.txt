@@ -2,4 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /go/
 
+# Crawl primary static assets and HTML pages
+Allow: /assets/
+
 Sitemap: https://saasverdict.com/sitemap.xml
