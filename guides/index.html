@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Automation Guides Hub 2026: Implementation Playbooks | SaaSVerdict</title>
-    <meta name="description" content="Implementation playbooks for automation teams: API launch flow, fingerprint QA, detection stacks, and connection leak validation before checkout.">
+    <meta name="description" content="Implementation playbooks for automation teams: API launch flow, anti-detect library architecture, fingerprint QA, and connection leak validation before checkout.">
     <meta name="robots" content="index,follow,max-image-preview:large">
     <link rel="canonical" href="https://saasverdict.com/guides/">
     <meta property="og:title" content="SaaSVerdict Automation Guides Hub">
@@ -29,6 +29,7 @@
           "url": "https://saasverdict.com/guides/",
           "hasPart": [
             {"@type": "WebPage", "url": "https://saasverdict.com/guides/multilogin-x-api-playwright/"},
+                        {"@type": "WebPage", "url": "https://saasverdict.com/guides/antidetect-libs-playbook/"},
                         {"@type": "WebPage", "url": "https://saasverdict.com/guides/browser-fingerprint-checklist/"},
                         {"@type": "WebPage", "url": "https://saasverdict.com/guides/detection-tests/"},
                         {"@type": "WebPage", "url": "https://saasverdict.com/guides/connection-leak-tests/"}
@@ -121,6 +122,19 @@
         </section>
 
         <section class="section">
+            <div class="panel">
+                <p class="section-kicker">Featured Architecture Guide</p>
+                <h2>Anti-Detect Libraries Playbook (Not a Simple List)</h2>
+                <p class="small">If you are building custom Puppeteer, Playwright, Selenium, or request-layer stacks, this guide maps tools by role, maintenance risk, and production fit before checkout decisions.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="/guides/antidetect-libs-playbook/">Open anti-detect libs playbook</a>
+                    <a class="btn btn-ghost" href="/guides/connection-leak-tests/">Connection leak tests</a>
+                    <a class="btn btn-ghost" href="/tools/multilogin-discount/">SAAS50 framework</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
             <p class="section-kicker">Learning Sequence</p>
             <h2>Recommended Order with Time Expectations</h2>
             <div class="table-wrap">
@@ -142,30 +156,36 @@
                         </tr>
                         <tr>
                             <td>2</td>
+                            <td><a href="/guides/antidetect-libs-playbook/">Anti-detect libs playbook</a></td>
+                            <td>Design a layered stack by framework and maintenance risk</td>
+                            <td>30 to 45 min</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
                             <td><a href="/guides/browser-fingerprint-checklist/">Fingerprint checklist</a></td>
                             <td>Validate profile stability before scale</td>
                             <td>30 to 45 min</td>
                         </tr>
                         <tr>
-                            <td>3</td>
+                            <td>4</td>
                             <td><a href="/guides/detection-tests/">Detection tests guide</a></td>
                             <td>Stress-test masking, automation, and network leak posture</td>
                             <td>25 to 40 min</td>
                         </tr>
                         <tr>
-                            <td>4</td>
+                            <td>5</td>
                             <td><a href="/guides/connection-leak-tests/">Connection leak tests</a></td>
                             <td>Validate WebRTC, DNS, and proxy behavior before purchase</td>
                             <td>20 to 30 min</td>
                         </tr>
                         <tr>
-                            <td>5</td>
+                            <td>6</td>
                             <td><a href="/compare/">Comparison hub</a></td>
                             <td>Confirm tool choice against risk and budget context</td>
                             <td>20 to 30 min</td>
                         </tr>
                         <tr>
-                            <td>6</td>
+                            <td>7</td>
                             <td><a href="/promo/">Promo verification hub</a></td>
                             <td>Validate discount claims before procurement action</td>
                             <td>10 to 15 min</td>
@@ -182,7 +202,7 @@
                 <div class="decision-grid">
                     <article class="decision-card">
                         <h3>Automation engineer</h3>
-                        <p class="small">Start with API implementation and lock timeout, retry, and cleanup standards.</p>
+                        <p class="small">Start with API implementation, then lock your anti-detect library architecture before scaling scripts.</p>
                     </article>
                     <article class="decision-card">
                         <h3>QA operator</h3>
@@ -202,6 +222,7 @@
                 <div class="related-links" aria-label="Related links">
                     <a href="/compare/">Comparison hub</a>
                     <a href="/tools/antidetect-browsers/">Browser ranking page</a>
+                    <a href="/guides/antidetect-libs-playbook/">Anti-detect libs playbook</a>
                     <a href="/guides/detection-tests/">Detection tests guide</a>
                     <a href="/guides/connection-leak-tests/">Connection leak tests guide</a>
                     <a href="/promo/">Promo verification hub</a>
