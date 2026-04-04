@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Browser Fingerprint Checklist for Automation Teams (2026) | SaaSVerdict</title>
-    <meta name="description" content="Actionable browser fingerprint checklist with pass-fail rules, test methods, and escalation logic before scaling automation operations.">
+    <meta name="description" content="Actionable browser fingerprint checklist with pass-fail rules, detection-test stack, and escalation logic before scaling automation operations.">
     <meta name="robots" content="index,follow,max-image-preview:large">
     <link rel="canonical" href="https://saasverdict.com/guides/browser-fingerprint-checklist/">
     <meta property="og:title" content="Browser Fingerprint Checklist for Automation Teams">
@@ -73,6 +73,7 @@
             <nav class="nav-links" aria-label="Main navigation">
                 <a href="/tools/">Tools</a>
                 <a href="/compare/">Compare</a>
+                <a href="/promo/">Promo</a>
                 <a href="/guides/" aria-current="page">Guides</a>
                 <a href="/about/">About</a>
                 <a href="/contact/">Contact</a>
@@ -148,6 +149,101 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </section>
+
+        <section class="section">
+            <p class="section-kicker">Detection Tests</p>
+            <h2>Everything Stack: Recommended Test Bundle</h2>
+            <p class="small">Run these tools in sequence, export evidence, and compare results across at least three repeated sessions before making procurement decisions.</p>
+            <p class="small">Need categorized tools for automation, captcha, and connection checks? <a href="/guides/detection-tests/">Open the dedicated detection tests guide</a>.</p>
+            <div class="table-wrap">
+                <table class="table-compact">
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Primary use</th>
+                            <th>What to watch</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="https://abrahamjuliot.github.io/creepjs/" target="_blank" rel="noopener noreferrer">CreepJS</a></td>
+                            <td>Deep fingerprint and lie-signal audit</td>
+                            <td>Unexpected lie clusters across reruns</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://pixelscan.net/" target="_blank" rel="noopener noreferrer">Pixelscan</a></td>
+                            <td>Fast browser and proxy sanity check</td>
+                            <td>Proxy, automation, or masking flags</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://fv.pro/check-privacy/general" target="_blank" rel="noopener noreferrer">F.vision</a></td>
+                            <td>Legacy privacy-signal cross-check</td>
+                            <td>Mismatch versus modern test output</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://coveryourtracks.eff.org/" target="_blank" rel="noopener noreferrer">Cover Your Tracks</a></td>
+                            <td>Trackability and uniqueness profile</td>
+                            <td>High uniqueness persistence over repeats</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://amiunique.org/fingerprint" target="_blank" rel="noopener noreferrer">AmIUnique</a></td>
+                            <td>Fingerprint uniqueness context</td>
+                            <td>Outlier uniqueness after minor restarts</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://bot.sannysoft.com/" target="_blank" rel="noopener noreferrer">Sannysoft</a></td>
+                            <td>Automation and anti-bot indicators</td>
+                            <td>Failed bot checks under stable setup</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://browserleaks.com/" target="_blank" rel="noopener noreferrer">BrowserLeaks</a></td>
+                            <td>Multi-surface leak and mismatch testing</td>
+                            <td>Inconsistency across WebRTC, canvas, DNS</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://audiofingerprint.openwpm.com/" target="_blank" rel="noopener noreferrer">Audio Fingerprint</a></td>
+                            <td>Audio stack repeatability check</td>
+                            <td>Drift in identical environment reruns</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://webbrowsertools.com/" target="_blank" rel="noopener noreferrer">WebBrowserTools</a></td>
+                            <td>Quick broad signal diagnostics</td>
+                            <td>Unexpected deltas between test rounds</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://reviewer.eugenebos.com/test" target="_blank" rel="noopener noreferrer">Raw custom test harness</a></td>
+                            <td>Transparent raw checks and debug visibility</td>
+                            <td>Low-level mismatches hidden in summarized tools</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://www.browserscan.net/en" target="_blank" rel="noopener noreferrer">BrowserScan</a></td>
+                            <td>Cross-check final browser fingerprint posture</td>
+                            <td>Conflicting final output versus baseline tests</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="comparison-note">Rule: if two or more critical signals conflict between repeated sessions, quarantine and retest before scaling or checkout.</p>
+        </section>
+
+        <section class="section">
+            <div class="panel">
+                <p class="section-kicker">Procurement Flow</p>
+                <h2>How Detection Tests Convert into Safer Affiliate Decisions</h2>
+                <div class="timeline">
+                    <div class="timeline-step"><b>Step 1:</b> Run the full detection bundle and save screenshots or export logs for evidence.</div>
+                    <div class="timeline-step"><b>Step 2:</b> Use compare pages to validate tradeoffs against your strictest risk constraint.</div>
+                    <div class="timeline-step"><b>Step 3:</b> Verify public promo claims before treating discount percentages as guaranteed.</div>
+                    <div class="timeline-step"><b>Step 4:</b> Move to official checkout only when reliability checks are consistently stable.</div>
+                </div>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="/compare/">Open compare hub</a>
+                    <a class="btn btn-ghost" href="/promo/">Open promo verification hub</a>
+                    <a class="btn btn-ghost" href="/tools/multilogin-discount/">Open Multilogin discount framework</a>
+                    <a class="btn btn-primary" href="/go/multilogin" target="_blank" rel="noopener noreferrer">Open official Multilogin checkout</a>
+                </div>
             </div>
         </section>
 
@@ -252,13 +348,19 @@ final_decision: pass | quarantine | retry</code></pre>
                     <p>You can reduce scope for pilots, but skipping entirely often creates migration pain when you scale later.</p>
                 </details>
                 <details>
+                    <summary>Which detection tools should I run first?</summary>
+                    <p>Start with CreepJS, Pixelscan, and BrowserLeaks for deep plus broad coverage, then cross-check with Sannysoft and BrowserScan.</p>
+                </details>
+                <details>
                     <summary>How often should this checklist run in production?</summary>
                     <p>Run after major browser or proxy changes and on a scheduled cadence for active profile templates.</p>
                 </details>
             </div>
             <div class="related-links" aria-label="Related links">
                 <a href="/guides/multilogin-x-api-playwright/">API + Playwright guide</a>
+                <a href="/guides/detection-tests/">Detection tests guide</a>
                 <a href="/compare/">Comparison hub</a>
+                <a href="/promo/">Promo verification hub</a>
                 <a href="/tools/antidetect-browsers/">2026 browser ranking</a>
             </div>
         </section>
