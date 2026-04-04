@@ -89,7 +89,7 @@
         <section class="hero">
             <span class="badge">Verified Partner Offer</span>
             <h1>Multilogin X Discount Code: SAAS50</h1>
-            <p class="lead">Use code SAAS50 at official checkout to activate recurring savings on eligible plans. This page includes activation steps and practical cost modeling for better decisions.</p>
+            <p class="lead">Use code SAAS50 at official checkout to activate recurring savings on eligible plans. Validate connection stability first, then apply the code with confidence.</p>
             <p class="hero-meta">Updated: 2026-04-04 | Intent: cost optimization for teams choosing reliability-focused infrastructure.</p>
         </section>
 
@@ -103,6 +103,7 @@
                     </div>
                     <div class="hero-actions">
                         <a class="btn btn-primary" href="/go/multilogin" target="_blank" rel="noopener noreferrer">Go to official checkout</a>
+                        <a class="btn btn-ghost" href="/guides/connection-leak-tests/">Connection leak tests guide</a>
                         <a class="btn btn-ghost" href="/guides/multilogin-x-api-playwright/">Implementation guide</a>
                     </div>
                 </div>
@@ -184,6 +185,40 @@
         </section>
 
         <section class="section">
+            <p class="section-kicker">Risk Gate Before Checkout</p>
+            <h2>Connection Readiness Check Before You Apply SAAS50</h2>
+            <div class="table-wrap">
+                <table class="table-compact">
+                    <thead>
+                        <tr>
+                            <th>Signal</th>
+                            <th>Quick test</th>
+                            <th>Go condition</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>WebRTC exposure</td>
+                            <td>BrowserLeaks WebRTC and IPRoyal leak test</td>
+                            <td>No unexpected local or proxy bypass leaks</td>
+                        </tr>
+                        <tr>
+                            <td>DNS routing consistency</td>
+                            <td>DnsLeakTest and BrowserLeaks DNS</td>
+                            <td>Resolver geography is coherent with profile target</td>
+                        </tr>
+                        <tr>
+                            <td>Proxy and reputation posture</td>
+                            <td>ProxyDetect and ipQualityScore</td>
+                            <td>No critical proxy flags or severe reputation outliers</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="small">Run the full workflow in <a href="/guides/connection-leak-tests/">connection leak tests guide</a> and only then finalize discount checkout.</p>
+        </section>
+
+        <section class="section">
             <p class="section-kicker">FAQ</p>
             <h2>Discount Questions</h2>
             <div class="faq-list">
@@ -209,6 +244,8 @@
         <section class="section">
             <div class="related-links" aria-label="Related links">
                 <a href="/tools/antidetect-browsers/">Best browsers ranking</a>
+                <a href="/guides/connection-leak-tests/">Connection leak tests guide</a>
+                <a href="/guides/detection-tests/">Detection tests guide</a>
                 <a href="/compare/">Comparison hub</a>
                 <a href="/contact/">Support and contact</a>
             </div>
