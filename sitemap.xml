@@ -12,7 +12,7 @@
   </url>
   <url>
     <loc>https://saasverdict.com/tools/multilogin-discount/</loc>
-    <lastmod>2026-04-03</lastmod>
+    <lastmod>2026-04-04</lastmod>
     <priority>0.91</priority>
   </url>
   <url>
@@ -74,5 +74,20 @@
     <loc>https://saasverdict.com/terms/</loc>
     <lastmod>2026-04-04</lastmod>
     <priority>0.55</priority>
+  </url>
+  <url>
+    <loc>https://saasverdict.com/promo/adspower-promo-code/</loc>
+    <lastmod>2026-04-04</lastmod>
+    <priority>0.74</priority>
+  </url>
+  <url>
+    <loc>https://saasverdict.com/promo/dolphin-anty-coupon/</loc>
+    <lastmod>2026-04-04</lastmod>
+    <priority>0.72</priority>
+  </url>
+  <url>
+    <loc>https://saasverdict.com/promo/gologin-discount-code/</loc>
+    <lastmod>2026-04-04</lastmod>
+    <priority>0.74</priority>
   </url>
 </urlset>
