@@ -65,6 +65,14 @@
                 "@type": "Answer",
                 "text": "Unexpected extensions can alter browser behavior and create false confidence in online tests, so offline checks reduce hidden risk."
               }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "When should I rerun connection checks in 2026?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Rerun checks after browser major updates, proxy provider changes, DNS policy changes, or network stack updates that can alter leak behavior."
+                            }
             }
           ]
         }
@@ -207,6 +215,20 @@
 
         <section class="section">
             <div class="panel">
+                <p class="section-kicker">2026 Drift Watchlist</p>
+                <h2>Network Surfaces to Recheck After Changes</h2>
+                <ul class="clean">
+                    <li>IPv6 route behavior versus proxy assumptions.</li>
+                    <li>DNS resolver routing changes including encrypted DNS policy shifts.</li>
+                    <li>WebRTC candidate behavior after browser or extension updates.</li>
+                    <li>Transport behavior changes after proxy pool or provider migration.</li>
+                </ul>
+                <p class="small">Useful references: <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API" target="_blank" rel="noopener noreferrer">MDN WebRTC API</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts" target="_blank" rel="noopener noreferrer">secure context behavior</a>.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="panel">
                 <p class="section-kicker">Affiliate Conversion Path</p>
                 <h2>Use Connection Evidence Before Applying SAAS50</h2>
                 <div class="code-box" style="margin-bottom: 1rem;">
@@ -221,6 +243,7 @@
                 </div>
                 <div class="hero-actions">
                     <a class="btn btn-primary" href="/tools/multilogin-discount/">Open Multilogin discount page</a>
+                    <a class="btn btn-ghost" href="/guides/antidetection-ops-sop/">Open antidetection ops SOP</a>
                     <a class="btn btn-ghost" href="/compare/">Open compare hub</a>
                     <a class="btn btn-ghost" href="/promo/">Open promo verification hub</a>
                     <a class="btn btn-primary" href="/go/multilogin" target="_blank" rel="noopener noreferrer">Open official checkout</a>
@@ -248,9 +271,14 @@
                     <summary>Should not recommended tools be removed completely?</summary>
                     <p>You can keep them as tertiary references, but they should never decide go or no-go for purchase.</p>
                 </details>
+                <details>
+                    <summary>When should I rerun connection checks in 2026?</summary>
+                    <p>Rerun after major browser updates, proxy provider changes, DNS policy shifts, or network stack changes that can affect leak posture.</p>
+                </details>
             </div>
             <div class="related-links" aria-label="Related resources">
                 <a href="/guides/antidetect-libs-playbook/">Anti-detect libs playbook</a>
+                <a href="/guides/antidetection-ops-sop/">Antidetection ops SOP guide</a>
                 <a href="/guides/detection-tests/">Detection tests guide</a>
                 <a href="/guides/browser-fingerprint-checklist/">Fingerprint checklist</a>
                 <a href="/tools/multilogin-discount/">Multilogin discount framework</a>

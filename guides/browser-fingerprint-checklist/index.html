@@ -57,6 +57,14 @@
                 "@type": "Answer",
                 "text": "Quarantine profiles when fingerprint outputs are inconsistent, geolocation mismatches appear, or lifecycle events cannot be traced reliably."
               }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Which 2026 signals should I recheck after updates?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Recheck User-Agent Client Hints, worker GPU availability, storage partition behavior, and WebRTC or DNS consistency after major updates."
+                            }
             }
           ]
         }
@@ -240,6 +248,7 @@
                 </div>
                 <div class="hero-actions">
                     <a class="btn btn-primary" href="/compare/">Open compare hub</a>
+                    <a class="btn btn-ghost" href="/guides/antidetection-ops-sop/">Open antidetection ops SOP</a>
                     <a class="btn btn-ghost" href="/promo/">Open promo verification hub</a>
                     <a class="btn btn-ghost" href="/tools/multilogin-discount/">Open Multilogin discount framework</a>
                     <a class="btn btn-primary" href="/go/multilogin" target="_blank" rel="noopener noreferrer">Open official Multilogin checkout</a>
@@ -293,6 +302,20 @@
                     <div class="timeline-step"><b>Step 4:</b> Promote only stable profiles into production queues.</div>
                 </div>
                 <p class="callout">If a profile fails any critical identity or runtime check, quarantine first and investigate before retesting.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="panel">
+                <p class="section-kicker">2026 Watchlist</p>
+                <h2>Signals to Recheck After Engine Updates</h2>
+                <ul class="clean">
+                    <li>User-Agent Client Hints coherence between headers and runtime surfaces.</li>
+                    <li>Worker-side GPU exposure parity versus main-thread capability checks.</li>
+                    <li>Storage and cookie partition behavior that can alter session assumptions.</li>
+                    <li>WebRTC and DNS consistency after proxy or browser-network changes.</li>
+                </ul>
+                <p class="small">References: <a href="https://developer.mozilla.org/en-US/docs/Web/API/NavigatorUAData" target="_blank" rel="noopener noreferrer">NavigatorUAData</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/WorkerNavigator/gpu" target="_blank" rel="noopener noreferrer">WorkerNavigator.gpu</a>, <a href="https://web.dev/articles/chips" target="_blank" rel="noopener noreferrer">CHIPS</a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API" target="_blank" rel="noopener noreferrer">WebRTC API</a>.</p>
             </div>
         </section>
 
@@ -355,9 +378,14 @@ final_decision: pass | quarantine | retry</code></pre>
                     <summary>How often should this checklist run in production?</summary>
                     <p>Run after major browser or proxy changes and on a scheduled cadence for active profile templates.</p>
                 </details>
+                <details>
+                    <summary>Which 2026 signals should I recheck after updates?</summary>
+                    <p>Recheck User-Agent Client Hints, worker GPU exposure, storage partition behavior, and WebRTC or DNS consistency.</p>
+                </details>
             </div>
             <div class="related-links" aria-label="Related links">
                 <a href="/guides/multilogin-x-api-playwright/">API + Playwright guide</a>
+                <a href="/guides/antidetection-ops-sop/">Antidetection ops SOP guide</a>
                 <a href="/guides/detection-tests/">Detection tests guide</a>
                 <a href="/guides/connection-leak-tests/">Connection leak tests guide</a>
                 <a href="/compare/">Comparison hub</a>

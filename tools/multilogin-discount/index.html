@@ -59,6 +59,14 @@
                 "@type": "Answer",
                 "text": "Validate savings directly in checkout totals and compare against your expected monthly and annual budget targets."
               }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Should teams run an ops SOP before applying SAAS50?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Yes. Use an operations SOP and connection checks so checkout happens only after repeated-session stability evidence is confirmed."
+                            }
             }
           ]
         }
@@ -215,7 +223,7 @@
                     </tbody>
                 </table>
             </div>
-            <p class="small">Run the full workflow in <a href="/guides/connection-leak-tests/">connection leak tests guide</a> and only then finalize discount checkout.</p>
+            <p class="small">Run the full workflow in <a href="/guides/connection-leak-tests/">connection leak tests guide</a> and <a href="/guides/antidetection-ops-sop/">antidetection ops SOP</a>, then finalize discount checkout.</p>
         </section>
 
         <section class="section">
@@ -238,6 +246,10 @@
                     <summary>What should I do after activation?</summary>
                     <p>Move into implementation and QA steps so lower subscription cost is paired with stable operational execution.</p>
                 </details>
+                <details>
+                    <summary>Should teams run an ops SOP before applying SAAS50?</summary>
+                    <p>Yes. Run ops-level gates and connection checks first, then activate SAAS50 when repeated-session stability is confirmed.</p>
+                </details>
             </div>
         </section>
 
@@ -245,6 +257,7 @@
             <div class="related-links" aria-label="Related links">
                 <a href="/tools/antidetect-browsers/">Best browsers ranking</a>
                 <a href="/guides/antidetect-libs-playbook/">Anti-detect libs playbook</a>
+                <a href="/guides/antidetection-ops-sop/">Antidetection ops SOP guide</a>
                 <a href="/guides/connection-leak-tests/">Connection leak tests guide</a>
                 <a href="/guides/detection-tests/">Detection tests guide</a>
                 <a href="/compare/">Comparison hub</a>

@@ -32,7 +32,8 @@
                         {"@type": "WebPage", "url": "https://saasverdict.com/guides/antidetect-libs-playbook/"},
                         {"@type": "WebPage", "url": "https://saasverdict.com/guides/browser-fingerprint-checklist/"},
                         {"@type": "WebPage", "url": "https://saasverdict.com/guides/detection-tests/"},
-                        {"@type": "WebPage", "url": "https://saasverdict.com/guides/connection-leak-tests/"}
+                                                {"@type": "WebPage", "url": "https://saasverdict.com/guides/connection-leak-tests/"},
+                                                {"@type": "WebPage", "url": "https://saasverdict.com/guides/antidetection-ops-sop/"}
           ]
         },
         {
@@ -60,6 +61,14 @@
                 "@type": "Answer",
                 "text": "Rerun it after browser updates, proxy changes, or any infrastructure shift that can alter runtime signals."
               }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "When should I use the antidetection ops SOP guide?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Use it after baseline detection checks and before procurement decisions to enforce clear go or no-go rollout gates."
+                            }
             }
           ]
         }
@@ -135,6 +144,19 @@
         </section>
 
         <section class="section">
+            <div class="panel">
+                <p class="section-kicker">New Practical Guide</p>
+                <h2>Antidetection Ops SOP: Tips to Repeatable Workflow</h2>
+                <p class="small">Need an operator-grade flow instead of scattered tricks? This guide gives a 90-minute validation sequence, worker parity gates, and an evidence package template before any buying decision.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="/guides/antidetection-ops-sop/">Open ops SOP guide</a>
+                    <a class="btn btn-ghost" href="/guides/detection-tests/">Detection tests</a>
+                    <a class="btn btn-ghost" href="/guides/connection-leak-tests/">Connection leak tests</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
             <p class="section-kicker">Learning Sequence</p>
             <h2>Recommended Order with Time Expectations</h2>
             <div class="table-wrap">
@@ -174,18 +196,24 @@
                         </tr>
                         <tr>
                             <td>5</td>
+                            <td><a href="/guides/antidetection-ops-sop/">Antidetection ops SOP</a></td>
+                            <td>Apply signal-contract and worker-parity gates before buying or scaling</td>
+                            <td>20 to 30 min</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
                             <td><a href="/guides/connection-leak-tests/">Connection leak tests</a></td>
                             <td>Validate WebRTC, DNS, and proxy behavior before purchase</td>
                             <td>20 to 30 min</td>
                         </tr>
                         <tr>
-                            <td>6</td>
+                            <td>7</td>
                             <td><a href="/compare/">Comparison hub</a></td>
                             <td>Confirm tool choice against risk and budget context</td>
                             <td>20 to 30 min</td>
                         </tr>
                         <tr>
-                            <td>7</td>
+                            <td>8</td>
                             <td><a href="/promo/">Promo verification hub</a></td>
                             <td>Validate discount claims before procurement action</td>
                             <td>10 to 15 min</td>
@@ -223,6 +251,7 @@
                     <a href="/compare/">Comparison hub</a>
                     <a href="/tools/antidetect-browsers/">Browser ranking page</a>
                     <a href="/guides/antidetect-libs-playbook/">Anti-detect libs playbook</a>
+                    <a href="/guides/antidetection-ops-sop/">Antidetection ops SOP</a>
                     <a href="/guides/detection-tests/">Detection tests guide</a>
                     <a href="/guides/connection-leak-tests/">Connection leak tests guide</a>
                     <a href="/promo/">Promo verification hub</a>
@@ -269,6 +298,10 @@
                 <details>
                     <summary>How often should I rerun the fingerprint checklist?</summary>
                     <p>Rerun it after major browser updates, proxy changes, or infrastructure shifts that may alter runtime signals.</p>
+                </details>
+                <details>
+                    <summary>When should I use the antidetection ops SOP guide?</summary>
+                    <p>Use it after baseline detection checks and before procurement to enforce go or no-go rollout gates.</p>
                 </details>
                 <details>
                     <summary>Can this hub help teams already in production?</summary>

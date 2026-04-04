@@ -57,6 +57,14 @@
                                 "@type": "Answer",
                                 "text": "The most common issues are missing remote_debugging_address fields, weak timeout policies, and cleanup paths that fail to stop profiles."
                             }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Should this guide be paired with an ops SOP before checkout?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Yes. Pair implementation checks with an operations SOP so procurement decisions happen only after repeated-session evidence is stable."
+                            }
                         }
                     ]
                 }
@@ -325,6 +333,7 @@ def run_task(profile_id: str, target_url: str) -> None:
                 <div class="hero-actions">
                     <a class="btn btn-primary" href="/guides/antidetect-libs-playbook/">Open anti-detect libs playbook</a>
                     <a class="btn btn-ghost" href="/guides/antidetect-libs-playbook/#chrome-launch-arguments">Chrome launch arguments matrix</a>
+                    <a class="btn btn-ghost" href="/guides/antidetection-ops-sop/">Antidetection ops SOP guide</a>
                     <a class="btn btn-ghost" href="/guides/connection-leak-tests/">Connection leak tests guide</a>
                     <a class="btn btn-ghost" href="/tools/multilogin-discount/">SAAS50 discount framework</a>
                 </div>
@@ -351,12 +360,17 @@ def run_task(profile_id: str, target_url: str) -> None:
                     <summary>When should I pause rollout and investigate?</summary>
                     <p>Pause when critical failures repeat, cleanup status is inconsistent, or payload assumptions change unexpectedly.</p>
                 </details>
+                <details>
+                    <summary>Should this guide be paired with an ops SOP before checkout?</summary>
+                    <p>Yes. Use ops-level go or no-go gates so buying or scaling decisions happen after stable repeated-session evidence.</p>
+                </details>
             </div>
         </section>
 
         <section class="section">
             <div class="related-links" aria-label="Related links">
                 <a href="/guides/antidetect-libs-playbook/">Anti-detect libs playbook</a>
+                <a href="/guides/antidetection-ops-sop/">Antidetection ops SOP guide</a>
                 <a href="/guides/browser-fingerprint-checklist/">Fingerprint checklist</a>
                 <a href="/guides/connection-leak-tests/">Connection leak tests guide</a>
                 <a href="/compare/">Comparison hub</a>
