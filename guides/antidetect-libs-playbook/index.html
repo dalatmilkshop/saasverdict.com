@@ -65,6 +65,14 @@
                 "@type": "Answer",
                 "text": "After your detection and connection leak checks are stable and your stack choice is validated against your production risk profile."
               }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Should I enable all Chrome launch arguments by default?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "No. Start with a minimal baseline and add arguments only when a repeated test proves a specific need, then re-validate for drift."
+                            }
             }
           ]
         }
@@ -161,6 +169,73 @@
                     </tbody>
                 </table>
             </div>
+        </section>
+
+        <section class="section">
+            <p class="section-kicker">Runtime Hardening</p>
+            <h2 id="chrome-launch-arguments">Chrome Launch Arguments: Use Cases and Caveats</h2>
+            <p>Use launch arguments as controlled overrides, not as a random bundle. Add only what your tests justify, then verify drift across repeated sessions.</p>
+            <div class="table-wrap">
+                <table class="table-compact">
+                    <thead>
+                        <tr>
+                            <th>Argument</th>
+                            <th>Typical purpose</th>
+                            <th>Operational note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>--profile-directory=${dir_name}</code></td>
+                            <td>Select target profile slot</td>
+                            <td>Use together with <code>userDataDir</code> to keep profile routing deterministic.</td>
+                        </tr>
+                        <tr>
+                            <td><code>--accept-lang=en,en-US,</code></td>
+                            <td>Align language surfaces</td>
+                            <td>Locale overrides are most stable on new profile directories.</td>
+                        </tr>
+                        <tr>
+                            <td><code>--user-agent=${user_agent}</code></td>
+                            <td>Align request headers and JS runtime UA</td>
+                            <td>Validate consistency between network headers and in-page navigator signals.</td>
+                        </tr>
+                        <tr>
+                            <td><code>--disable-extensions-except=${EXTENSION_PATH}</code></td>
+                            <td>Load only approved extension set</td>
+                            <td>Pair with <code>--load-extension</code> to avoid silent extension mismatch.</td>
+                        </tr>
+                        <tr>
+                            <td><code>--load-extension=${EXTENSION_PATH}</code></td>
+                            <td>Inject required runtime extension</td>
+                            <td>Pin extension version and checksum in your dependency policy.</td>
+                        </tr>
+                        <tr>
+                            <td><code>--disable-site-isolation-trials</code></td>
+                            <td>Improve iframe visibility in Puppeteer workflows</td>
+                            <td>Use only when cross-domain iframe access behavior must be validated in your stack.</td>
+                        </tr>
+                        <tr>
+                            <td><code>--aggressive-cache-discard</code></td>
+                            <td>Increase debugger/extension timing headroom</td>
+                            <td>Treat as troubleshooting support flag, not permanent default.</td>
+                        </tr>
+                        <tr>
+                            <td><code>--disable-gpu</code></td>
+                            <td>Reduce some canvas-side volatility</td>
+                            <td>GPU vendor and renderer surfaces still exist, so confirm final signal profile with tests.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <pre><code>args: [
+  '--profile-directory=Profile 7',
+  '--accept-lang=en,en-US,',
+  '--user-agent=YOUR_UA',
+  '--disable-extensions-except=/abs/path/to/ext',
+  '--load-extension=/abs/path/to/ext'
+]</code></pre>
+            <p class="small">Baseline first, then add optional flags only when the failure mode is reproducible in your detection and connection test bundles.</p>
         </section>
 
         <section class="section grid-2">
@@ -260,6 +335,10 @@ checkout_policy:
                 <details>
                     <summary>When does the SAAS50 checkout step make sense?</summary>
                     <p>After detection and connection leak checks are stable and your stack is validated against your production risk profile.</p>
+                </details>
+                <details>
+                    <summary>Should I enable all Chrome launch arguments at once?</summary>
+                    <p>No. Start from a minimal baseline and add arguments only when a repeated test proves a concrete need.</p>
                 </details>
                 <details>
                     <summary>Is lower monthly price always better?</summary>
