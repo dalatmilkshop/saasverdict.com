@@ -4,13 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editorial Policy | SaaSVerdict</title>
-    <meta name="description" content="SaaSVerdict editorial standards: testing methodology, update process, corrections, and disclosure principles.">
+        <meta name="description" content="SaaSVerdict editorial standards: scoring logic, disclosure governance, correction workflow, and evidence thresholds for publication.">
     <meta name="robots" content="index,follow,max-image-preview:large">
     <link rel="canonical" href="https://saasverdict.com/editorial-policy/">
+        <meta property="og:title" content="Editorial Policy | SaaSVerdict">
+        <meta property="og:description" content="How SaaSVerdict manages testing quality, disclosure integrity, and correction handling.">
+        <meta property="og:url" content="https://saasverdict.com/editorial-policy/">
+        <meta property="og:type" content="article">
+        <meta property="og:site_name" content="SaaSVerdict">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Editorial Policy | SaaSVerdict">
+        <meta name="twitter:description" content="Read our standards for scoring, disclosure, updates, and correction governance.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/site.css">
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "WebPage",
+                    "name": "Editorial Policy",
+                    "url": "https://saasverdict.com/editorial-policy/"
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saasverdict.com/"},
+                        {"@type": "ListItem", "position": 2, "name": "Editorial Policy", "item": "https://saasverdict.com/editorial-policy/"}
+                    ]
+                },
+                {
+                    "@type": "FAQPage",
+                    "mainEntity": [
+                        {
+                            "@type": "Question",
+                            "name": "How do partnerships affect scoring?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Partnership context is disclosed, but scoring remains anchored to the technical criteria published in each review."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "How are corrections handled?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Verified issues are corrected with revision notes and publication updates to preserve transparency."
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+        </script>
 </head>
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -34,16 +82,17 @@
         <section class="hero">
             <span class="badge">Transparency</span>
             <h1>Editorial Policy</h1>
-            <p class="lead">Our goal is practical, evidence-based guidance for lawful browser automation operations.</p>
+            <p class="lead">Our goal is practical, evidence-based guidance for lawful browser automation operations, with clear boundaries between verified signals and editorial interpretation.</p>
+            <p class="hero-meta">Updated: 2026-04-04 | This policy applies to all guides, rankings, and comparison content on SaaSVerdict.</p>
         </section>
 
         <section class="section grid-2">
             <article class="card">
-                <h2>Testing Standards</h2>
+                <h2>Evidence Standards</h2>
                 <ul class="clean">
                     <li>We use repeatable benchmark conditions where possible.</li>
-                    <li>We separate objective signals from opinion sections.</li>
-                    <li>Major updates are reflected in publication revisions.</li>
+                    <li>We separate technical signals from interpretation sections.</li>
+                    <li>We document caveats when evidence quality is limited.</li>
                 </ul>
             </article>
             <article class="card">
@@ -51,16 +100,97 @@
                 <ul class="clean">
                     <li>Affiliate links are disclosed where relevant.</li>
                     <li>Partnerships do not override scoring criteria.</li>
-                    <li>Commercial context is labeled clearly.</li>
+                    <li>Commercial context is labeled clearly in-page.</li>
                 </ul>
             </article>
         </section>
 
         <section class="section">
             <div class="panel">
-                <h2>Corrections and Updates</h2>
-                <p>If you find inaccuracies, contact us at <a href="mailto:admin@saasverdict.com">admin@saasverdict.com</a>. Verified corrections are applied with revision notes.</p>
-                <p class="small">Last updated: 2026-04-03</p>
+                <p class="section-kicker">Scoring Governance</p>
+                <h2>How Decision Criteria Are Weighted</h2>
+                <div class="progress-list">
+                    <div class="progress-row">
+                        <div>
+                            <div class="progress-label">Profile integrity and consistency</div>
+                            <div class="progress-track"><div class="progress-fill" style="width: 40%;"></div></div>
+                        </div>
+                        <strong>40%</strong>
+                    </div>
+                    <div class="progress-row">
+                        <div>
+                            <div class="progress-label">API reliability and observability</div>
+                            <div class="progress-track"><div class="progress-fill alt" style="width: 25%;"></div></div>
+                        </div>
+                        <strong>25%</strong>
+                    </div>
+                    <div class="progress-row">
+                        <div>
+                            <div class="progress-label">Cost efficiency under real operations</div>
+                            <div class="progress-track"><div class="progress-fill" style="width: 20%;"></div></div>
+                        </div>
+                        <strong>20%</strong>
+                    </div>
+                    <div class="progress-row">
+                        <div>
+                            <div class="progress-label">Team workflow and handoff maturity</div>
+                            <div class="progress-track"><div class="progress-fill alt" style="width: 15%;"></div></div>
+                        </div>
+                        <strong>15%</strong>
+                    </div>
+                </div>
+                <p class="callout">We prioritize reliability over raw feature volume because operational failure has compounding effects.</p>
+            </div>
+        </section>
+
+        <section class="section grid-2">
+            <article class="card">
+                <h2>Conflict Management</h2>
+                <ul class="clean">
+                    <li>Commercial relationships are disclosed in relevant pages.</li>
+                    <li>Disclosure status does not modify scoring weights.</li>
+                    <li>Editorial conclusions must be traceable to published criteria.</li>
+                </ul>
+            </article>
+            <article class="card">
+                <h2>Correction Workflow</h2>
+                <ul class="clean">
+                    <li>Reported issues are triaged by evidence strength and impact scope.</li>
+                    <li>Verified issues are corrected with revision notes.</li>
+                    <li>Material corrections are reflected in updated page metadata.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="section">
+            <div class="panel">
+                <p class="section-kicker">Update Policy</p>
+                <h2>When and How We Revise Content</h2>
+                <div class="timeline">
+                    <div class="timeline-step"><b>Routine update:</b> content is reviewed and refreshed when assumptions or tool behavior changes.</div>
+                    <div class="timeline-step"><b>Correction update:</b> verified inaccuracies are corrected with clear revision visibility.</div>
+                    <div class="timeline-step"><b>Major methodology update:</b> scoring logic and caveats are revised and reflected across affected pages.</div>
+                </div>
+                <p class="small">To report a potential issue, contact <a href="mailto:admin@saasverdict.com">admin@saasverdict.com</a> with URL, observation, and supporting evidence.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <p class="section-kicker">FAQ</p>
+            <h2>Editorial Policy Questions</h2>
+            <div class="faq-list">
+                <details>
+                    <summary>How do partnerships affect scoring?</summary>
+                    <p>Partnership context is disclosed, but scoring remains anchored to the published technical criteria.</p>
+                </details>
+                <details>
+                    <summary>How are corrections handled?</summary>
+                    <p>Verified issues are corrected with revision notes and reflected in updated publication metadata.</p>
+                </details>
+                <details>
+                    <summary>Do you guarantee specific outcomes?</summary>
+                    <p>No. We publish decision frameworks and implementation guidance, not guaranteed operational outcomes.</p>
+                </details>
             </div>
         </section>
     </main>
