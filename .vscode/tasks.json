@@ -1,0 +1,264 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "probe-task",
+			"type": "shell",
+			"command": "echo hi > terminal-probe-task.txt",
+			"isBackground": false
+		},
+		{
+			"label": "convert-tham-khao2-all",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				".\\distribution\\convert-tham-khao2-api-library.ps1",
+				"-AllCategories"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "update-sitemap-api-manifest",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				".\\distribution\\update-sitemap-from-api-manifest.ps1"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "cleanup-old-api-hub-partial",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-Command",
+				"Remove-Item -LiteralPath '.\\guides\\multilogin-api-knowledge-hub' -Recurse -Force -ErrorAction SilentlyContinue; Remove-Item -LiteralPath '.\\assets\\img\\guides\\multilogin-api-knowledge-hub' -Recurse -Force -ErrorAction SilentlyContinue; Write-Output 'cleanup=done'"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "cleanup-old-api-hub-partial",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				".\\distribution\\cleanup-old-api-hub.ps1"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "cleanup-old-api-hub-v2",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				".\\distribution\\cleanup-old-api-hub.ps1"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "generate-sitewide-social-scripts",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				".\\distribution\\generate-sitewide-social-scripts.ps1"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "split-sitewide-social-by-platform",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				".\\distribution\\split-sitewide-social-by-platform.ps1"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "status-summary",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-Command",
+				"$pub = git status --short -- distribution guides index.html feeds/lab-updates.xml sitemap.xml assets/img/guides/mlx-api-hub; $cnt = (git status --short -- \"Tham Khao 2\" | Measure-Object -Line).Lines; $pub; '---'; ('tham-khao-2-changes=' + $cnt)"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "status-summary-v2",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-Command",
+				"$pub = git status --short -- distribution guides index.html feeds/lab-updates.xml sitemap.xml assets/img/guides/mlx-api-hub; $cnt = (git status --short -- \"Tham Khao 2\" | Measure-Object -Line).Lines; $pub; Write-Output \"---\"; Write-Output (\"tham-khao-2-changes=\" + $cnt)"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "status-count-thamkhao2",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-Command",
+				"$cnt = (git status --short -- \"Tham Khao 2\" | Measure-Object -Line).Lines; Write-Output $cnt"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "status-publish-clean",
+			"type": "shell",
+			"command": "git",
+			"args": [
+				"status",
+				"--short",
+				"--",
+				"distribution",
+				"guides",
+				"index.html",
+				"feeds/lab-updates.xml",
+				"sitemap.xml",
+				"assets/img/guides/mlx-api-hub"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "verify-mlx-image-links",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-Command",
+				"$root=(Get-Location).Path; $pages=Get-ChildItem '.\\guides\\mlx-api-hub' -Recurse -File -Filter index.html; $missing=[System.Collections.Generic.List[string]]::new(); $totalRefs=0; foreach($p in $pages){ $html=Get-Content -Raw -LiteralPath $p.FullName; $ms=[regex]::Matches($html,'src=\"(/assets/img/guides/mlx-api-hub/[^\"]+)\"'); foreach($m in $ms){ $totalRefs++; $rel=$m.Groups[1].Value.TrimStart('/'); $abs=Join-Path $root ($rel -replace '/','\\'); if(-not (Test-Path -LiteralPath $abs)){ $missing.Add(($p.FullName + ' => ' + $rel)); } } }; Write-Output ('pages=' + $pages.Count); Write-Output ('img_refs=' + $totalRefs); Write-Output ('missing=' + $missing.Count); if($missing.Count -gt 0){ $missing | Select-Object -First 20 | ForEach-Object { Write-Output $_ } }"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "manifest-image-summary",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-Command",
+				"$m='distribution\\multilogin-api-knowledge-import-manifest.csv'; if(Test-Path $m){ $rows=Import-Csv -LiteralPath $m; $sum=($rows | Measure-Object -Property images_copied -Sum).Sum; Write-Output ('manifest_rows=' + $rows.Count); Write-Output ('manifest_images_copied=' + $sum); } else { Write-Output 'manifest_missing=1' }"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "verify-mlx-conversion",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				".\\distribution\\verify-mlx-conversion.ps1"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "remove-tham-khao2-source",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				".\\distribution\\remove-tham-khao2-source.ps1"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "remove-tham-khao2-source",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				".\\distribution\\remove-tham-khao2-source.ps1"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "git-rm-tham-khao2",
+			"type": "shell",
+			"command": "git",
+			"args": [
+				"-c",
+				"core.longpaths=true",
+				"rm",
+				"-r",
+				"--",
+				"Tham Khao 2"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "remove-tham-khao2-source",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				".\\distribution\\remove-tham-khao2-source.ps1"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "strip-site-image-metadata",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				".\\distribution\\strip-site-image-metadata.ps1"
+			],
+			"isBackground": false
+		}
+	]
+}

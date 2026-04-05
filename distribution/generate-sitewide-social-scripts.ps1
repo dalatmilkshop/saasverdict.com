@@ -93,13 +93,13 @@ $pageIndex = 0
 foreach ($file in $files) {
     $pageIndex++
 
-    $rel = $file.FullName.Substring($root.Length + 1).Replace('\\', '/')
+    $rel = $file.FullName.Substring($root.Length + 1).Replace('\', '/')
 
     if ($rel -eq 'index.html') {
         $urlPath = '/'
     }
     else {
-        $parent = (Split-Path $rel -Parent).Replace('\\', '/').Trim('/')
+        $parent = (Split-Path $rel -Parent).Replace('\', '/').Trim('/')
         $urlPath = '/' + $parent + '/'
     }
 
