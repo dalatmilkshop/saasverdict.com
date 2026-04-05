@@ -259,6 +259,44 @@
 				".\\distribution\\strip-site-image-metadata.ps1"
 			],
 			"isBackground": false
+		},
+		{
+			"label": "image-extension-summary",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-Command",
+				"$root='assets\\img'; if(Test-Path -LiteralPath $root){ Get-ChildItem -LiteralPath $root -Recurse -File | Group-Object Extension | Sort-Object Count -Descending | ForEach-Object { Write-Output ($_.Name + '=' + $_.Count) } } else { Write-Output 'assets_img_missing=1' }"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "strip-site-image-metadata-python",
+			"type": "shell",
+			"command": "c:/Users/Dalatmilkshop/Documents/GitHub/saasverdict.com/.venv/Scripts/python.exe",
+			"args": [
+				".\\distribution\\strip-site-image-metadata.py",
+				"--root",
+				".\\assets\\img",
+				"--refresh-timestamps"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "count-image-modifications",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-Command",
+				"$cnt=(git status --short -- assets/img | Measure-Object -Line).Lines; Write-Output (\"assets_img_changes=\" + $cnt)"
+			],
+			"isBackground": false
 		}
 	]
 }
