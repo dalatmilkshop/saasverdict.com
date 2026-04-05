@@ -32,6 +32,8 @@
                         {"@type": "WebPage", "url": "https://saasverdict.com/compare/"},
                         {"@type": "WebPage", "url": "https://saasverdict.com/promo/"},
                         {"@type": "WebPage", "url": "https://saasverdict.com/guides/antidetect-libs-playbook/"},
+                        {"@type": "WebPage", "url": "https://saasverdict.com/guides/antidetection-ops-sop/"},
+                        {"@type": "WebPage", "url": "https://saasverdict.com/guides/evaluation-methodology/"},
                         {"@type": "WebPage", "url": "https://saasverdict.com/guides/detection-tests/"},
                         {"@type": "WebPage", "url": "https://saasverdict.com/guides/connection-leak-tests/"},
                         {"@type": "WebPage", "url": "https://saasverdict.com/tools/multilogin-discount/"}
@@ -54,6 +56,22 @@
                             "acceptedAnswer": {
                                 "@type": "Answer",
                                 "text": "No. Discount should be the final action after reliability fit and operational risk are validated."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Where does the antidetection ops SOP fit in this flow?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Use the ops SOP after baseline detection checks and before procurement so rollout decisions follow clear go or no-go gates."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Where can I audit scoring weights and blocker rules?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Use the evaluation methodology guide for weighted criteria, reproducibility protocol, and correction standards."
                             }
                         }
                     ]
@@ -147,6 +165,8 @@
                     <a href="/compare/">Comparison hub</a>
                     <a href="/promo/">Promo verification hub</a>
                     <a href="/guides/antidetect-libs-playbook/">Anti-detect libs playbook</a>
+                    <a href="/guides/antidetection-ops-sop/">Antidetection ops SOP guide</a>
+                    <a href="/guides/evaluation-methodology/">Evaluation methodology guide</a>
                     <a href="/guides/detection-tests/">Detection tests guide</a>
                     <a href="/guides/connection-leak-tests/">Connection leak tests guide</a>
                     <a href="/guides/">Guides hub</a>
@@ -194,6 +214,16 @@
                             <td><a href="/compare/">Comparison hub</a></td>
                         </tr>
                         <tr>
+                            <td>You need clear go or no-go gates before procurement</td>
+                            <td><a href="/guides/antidetection-ops-sop/">Antidetection ops SOP guide</a></td>
+                            <td><a href="/tools/multilogin-discount/">Discount page</a></td>
+                        </tr>
+                        <tr>
+                            <td>You need to audit scoring assumptions before approval</td>
+                            <td><a href="/guides/evaluation-methodology/">Evaluation methodology guide</a></td>
+                            <td><a href="/editorial-policy/">Editorial policy</a></td>
+                        </tr>
+                        <tr>
                             <td>You are building a custom Puppeteer, Playwright, or Selenium stack</td>
                             <td><a href="/guides/antidetect-libs-playbook/">Anti-detect libs playbook</a></td>
                             <td><a href="/guides/connection-leak-tests/">Connection leak tests guide</a></td>
@@ -232,6 +262,14 @@
                 <details>
                     <summary>Where should I verify promo or coupon claims?</summary>
                     <p>Use the promo verification hub first, then open compare pages to validate risk before final checkout.</p>
+                </details>
+                <details>
+                    <summary>Where does the antidetection ops SOP fit in this flow?</summary>
+                    <p>Use it after baseline detection checks and before procurement so buying decisions follow clear go or no-go gates.</p>
+                </details>
+                <details>
+                    <summary>Where can I audit scoring weights and blocker rules?</summary>
+                    <p>Use the evaluation methodology guide to review weighted criteria, evidence quality levels, and correction standards.</p>
                 </details>
             </div>
         </section>
