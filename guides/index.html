@@ -34,7 +34,9 @@
                         {"@type": "WebPage", "url": "https://saasverdict.com/guides/detection-tests/"},
                                                 {"@type": "WebPage", "url": "https://saasverdict.com/guides/connection-leak-tests/"},
                                                                                                 {"@type": "WebPage", "url": "https://saasverdict.com/guides/antidetection-ops-sop/"},
-                                                                                                {"@type": "WebPage", "url": "https://saasverdict.com/guides/evaluation-methodology/"}
+                                                                                                                                                                                                {"@type": "WebPage", "url": "https://saasverdict.com/guides/evaluation-methodology/"},
+                                                                                                                                                                                                {"@type": "WebPage", "url": "https://saasverdict.com/guides/benchmark-reports/"},
+                                                                                                                                                                                                {"@type": "WebPage", "url": "https://saasverdict.com/guides/methodology-changelog/"}
           ]
         },
         {
@@ -78,6 +80,14 @@
                                         "@type": "Answer",
                                         "text": "Use the evaluation methodology guide to review weighted scoring criteria, blocker rules, and correction workflow standards."
                                 }
+                    },
+                    {
+                    "@type": "Question",
+                    "name": "Where can I track monthly benchmark changes?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Use the benchmark reports hub and methodology changelog to track monthly reliability updates and protocol evolution."
+                    }
             }
           ]
         }
@@ -179,6 +189,20 @@
         </section>
 
         <section class="section">
+            <div class="panel">
+                <p class="section-kicker">New Lab Layer</p>
+                <h2>Benchmark Reports and Methodology Change Tracking</h2>
+                <p class="small">Need a time-series view instead of one-time pages? Use monthly benchmark reports and versioned changelog notes to track reliability drift and scoring updates over time.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="/guides/benchmark-reports/">Open benchmark reports hub</a>
+                    <a class="btn btn-ghost" href="/guides/benchmark-reports/2026-04/">Read April 2026 baseline</a>
+                    <a class="btn btn-ghost" href="/guides/methodology-changelog/">Open methodology changelog</a>
+                    <a class="btn btn-ghost" href="/tools/fingerprint-readiness-score/">Run readiness score tool</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
             <p class="section-kicker">Learning Sequence</p>
             <h2>Recommended Order with Time Expectations</h2>
             <div class="table-wrap">
@@ -236,12 +260,24 @@
                         </tr>
                         <tr>
                             <td>8</td>
+                            <td><a href="/guides/benchmark-reports/">Benchmark reports hub</a></td>
+                            <td>Track monthly reliability shifts and candidate risk drift</td>
+                            <td>15 to 25 min</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td><a href="/guides/methodology-changelog/">Methodology changelog</a></td>
+                            <td>Audit scoring-version changes and decision impact notes</td>
+                            <td>10 to 20 min</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
                             <td><a href="/compare/">Comparison hub</a></td>
                             <td>Confirm tool choice against risk and budget context</td>
                             <td>20 to 30 min</td>
                         </tr>
                         <tr>
-                            <td>9</td>
+                            <td>11</td>
                             <td><a href="/promo/">Promo verification hub</a></td>
                             <td>Validate discount claims before procurement action</td>
                             <td>10 to 15 min</td>
@@ -281,8 +317,11 @@
                     <a href="/guides/antidetect-libs-playbook/">Anti-detect libs playbook</a>
                     <a href="/guides/antidetection-ops-sop/">Antidetection ops SOP</a>
                     <a href="/guides/evaluation-methodology/">Evaluation methodology guide</a>
+                    <a href="/guides/benchmark-reports/">Benchmark reports hub</a>
+                    <a href="/guides/methodology-changelog/">Methodology changelog</a>
                     <a href="/guides/detection-tests/">Detection tests guide</a>
                     <a href="/guides/connection-leak-tests/">Connection leak tests guide</a>
+                    <a href="/tools/fingerprint-readiness-score/">Fingerprint readiness score</a>
                     <a href="/promo/">Promo verification hub</a>
                     <a href="/tools/">Pricing and discounts</a>
                 </div>
@@ -335,6 +374,10 @@
                 <details>
                     <summary>Where can I review the exact scoring and reproducibility protocol?</summary>
                     <p>Use the evaluation methodology guide to audit weights, blocker rules, and correction standards behind each verdict.</p>
+                </details>
+                <details>
+                    <summary>Where can I track monthly benchmark changes?</summary>
+                    <p>Use the benchmark reports hub and methodology changelog to follow reliability drift and scoring updates month by month.</p>
                 </details>
                 <details>
                     <summary>Can this hub help teams already in production?</summary>

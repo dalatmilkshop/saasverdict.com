@@ -16,6 +16,11 @@
     <priority>0.91</priority>
   </url>
   <url>
+    <loc>https://saasverdict.com/tools/fingerprint-readiness-score/</loc>
+    <lastmod>2026-04-04</lastmod>
+    <priority>0.89</priority>
+  </url>
+  <url>
     <loc>https://saasverdict.com/tools/antidetect-browsers/</loc>
     <lastmod>2026-04-04</lastmod>
     <priority>0.90</priority>
@@ -174,6 +179,21 @@
     <loc>https://saasverdict.com/guides/evaluation-methodology/</loc>
     <lastmod>2026-04-04</lastmod>
     <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://saasverdict.com/guides/benchmark-reports/</loc>
+    <lastmod>2026-04-04</lastmod>
+    <priority>0.89</priority>
+  </url>
+  <url>
+    <loc>https://saasverdict.com/guides/benchmark-reports/2026-04/</loc>
+    <lastmod>2026-04-04</lastmod>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://saasverdict.com/guides/methodology-changelog/</loc>
+    <lastmod>2026-04-04</lastmod>
+    <priority>0.86</priority>
   </url>
   <url>
     <loc>https://saasverdict.com/about/</loc>
