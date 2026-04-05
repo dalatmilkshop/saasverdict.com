@@ -26,6 +26,11 @@
     <priority>0.88</priority>
   </url>
   <url>
+    <loc>https://saasverdict.com/tools/benchmark-release-checker/</loc>
+    <lastmod>2026-04-04</lastmod>
+    <priority>0.87</priority>
+  </url>
+  <url>
     <loc>https://saasverdict.com/feeds/lab-updates.xml</loc>
     <lastmod>2026-04-04</lastmod>
     <priority>0.40</priority>
