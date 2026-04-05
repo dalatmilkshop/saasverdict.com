@@ -251,6 +251,26 @@
     <priority>0.87</priority>
   </url>
   <url>
+    <loc>https://saasverdict.com/guides/multilogin-x-getting-started-roadmap/</loc>
+    <lastmod>2026-04-05</lastmod>
+    <priority>0.87</priority>
+  </url>
+  <url>
+    <loc>https://saasverdict.com/guides/workspace-id-and-token-setup-runbook/</loc>
+    <lastmod>2026-04-05</lastmod>
+    <priority>0.87</priority>
+  </url>
+  <url>
+    <loc>https://saasverdict.com/guides/multilogin-x-script-runner-playbook/</loc>
+    <lastmod>2026-04-05</lastmod>
+    <priority>0.87</priority>
+  </url>
+  <url>
+    <loc>https://saasverdict.com/guides/openmultilogin-risk-and-migration-guide/</loc>
+    <lastmod>2026-04-05</lastmod>
+    <priority>0.87</priority>
+  </url>
+  <url>
     <loc>https://saasverdict.com/about/</loc>
     <lastmod>2026-04-04</lastmod>
     <priority>0.70</priority>
