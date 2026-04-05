@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://saasverdict.com/</loc>
-    <lastmod>2026-04-04</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <priority>1.00</priority>
   </url>
   <url>
@@ -229,6 +229,26 @@
     <loc>https://saasverdict.com/guides/methodology-changelog/</loc>
     <lastmod>2026-04-05</lastmod>
     <priority>0.86</priority>
+  </url>
+  <url>
+    <loc>https://saasverdict.com/guides/multilogin-x-open-source-blueprints/</loc>
+    <lastmod>2026-04-05</lastmod>
+    <priority>0.87</priority>
+  </url>
+  <url>
+    <loc>https://saasverdict.com/guides/laravel-multilogin-sdk-playbook/</loc>
+    <lastmod>2026-04-05</lastmod>
+    <priority>0.87</priority>
+  </url>
+  <url>
+    <loc>https://saasverdict.com/guides/cookie-automation-runbook/</loc>
+    <lastmod>2026-04-05</lastmod>
+    <priority>0.87</priority>
+  </url>
+  <url>
+    <loc>https://saasverdict.com/guides/proxy-profile-bootstrap-playbook/</loc>
+    <lastmod>2026-04-05</lastmod>
+    <priority>0.87</priority>
   </url>
   <url>
     <loc>https://saasverdict.com/about/</loc>
