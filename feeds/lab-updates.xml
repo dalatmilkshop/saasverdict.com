@@ -3,10 +3,34 @@
   <channel>
     <title>SaaSVerdict Lab Updates</title>
     <link>https://saasverdict.com/guides/benchmark-reports/</link>
-    <description>Monthly benchmark releases, methodology updates, and evidence workflow tooling.</description>
+    <description>Monthly benchmark releases, pricing playbooks, methodology updates, and evidence workflow tooling.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 Apr 2026 14:20:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 05 Apr 2026 16:30:00 +0000</lastBuildDate>
     <atom:link href="https://saasverdict.com/feeds/lab-updates.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>May 2026 Benchmark Preview Published</title>
+      <link>https://saasverdict.com/guides/benchmark-reports/2026-05/</link>
+      <guid isPermaLink="true">https://saasverdict.com/guides/benchmark-reports/2026-05/</guid>
+      <pubDate>Sun, 05 Apr 2026 16:20:00 +0000</pubDate>
+      <description>Early May reliability trend preview across 22 platforms with delta matrix versus April baseline and release-gate checks.</description>
+    </item>
+
+    <item>
+      <title>Best Multilogin Alternatives Page Published</title>
+      <link>https://saasverdict.com/compare/multilogin-alternatives/</link>
+      <guid isPermaLink="true">https://saasverdict.com/compare/multilogin-alternatives/</guid>
+      <pubDate>Sun, 05 Apr 2026 11:15:00 +0000</pubDate>
+      <description>New high-intent shortlist page mapping Multilogin alternatives by risk profile, API readiness, and operating cost checks.</description>
+    </item>
+
+    <item>
+      <title>Antidetect Browser Pricing Playbook Released</title>
+      <link>https://saasverdict.com/guides/antidetect-browser-pricing-playbook/</link>
+      <guid isPermaLink="true">https://saasverdict.com/guides/antidetect-browser-pricing-playbook/</guid>
+      <pubDate>Sun, 05 Apr 2026 11:20:00 +0000</pubDate>
+      <description>Decision framework for monthly versus annual plans using total cost, failure overhead, and governance risk modeling.</description>
+    </item>
 
     <item>
       <title>Benchmark Release Checker Added</title>
