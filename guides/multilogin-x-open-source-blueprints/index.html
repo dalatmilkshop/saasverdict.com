@@ -14,7 +14,7 @@
     <meta property="og:site_name" content="SaaSVerdict">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Multilogin X Open-Source Blueprints">
-    <meta name="twitter:description" content="Use these four implementation tracks to move from open-source research to stable production workflows.">
+    <meta name="twitter:description" content="Use these implementation tracks to move from open-source research to stable production workflows.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -31,6 +31,10 @@
             {"@type": "WebPage", "url": "https://saasverdict.com/guides/laravel-multilogin-sdk-playbook/"},
             {"@type": "WebPage", "url": "https://saasverdict.com/guides/cookie-automation-runbook/"},
             {"@type": "WebPage", "url": "https://saasverdict.com/guides/proxy-profile-bootstrap-playbook/"},
+                        {"@type": "WebPage", "url": "https://saasverdict.com/guides/multilogin-x-getting-started-roadmap/"},
+                        {"@type": "WebPage", "url": "https://saasverdict.com/guides/workspace-id-and-token-setup-runbook/"},
+                        {"@type": "WebPage", "url": "https://saasverdict.com/guides/multilogin-x-script-runner-playbook/"},
+                        {"@type": "WebPage", "url": "https://saasverdict.com/guides/openmultilogin-risk-and-migration-guide/"},
             {"@type": "WebPage", "url": "https://saasverdict.com/guides/multilogin-x-api-playwright/"},
             {"@type": "WebPage", "url": "https://saasverdict.com/guides/antidetection-ops-sop/"}
           ]
@@ -77,6 +81,14 @@
                 "@type": "Answer",
                 "text": "Yes. The pages stand alone as implementation playbooks and do not require the reference folder to remain in the website repository."
               }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Where can I find onboarding and migration guides from the second content wave?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Use the getting started roadmap, workspace and token setup runbook, script runner playbook, and OpenMultiLogin risk migration guide."
+                            }
             }
           ]
         }
@@ -146,6 +158,26 @@
                                 <td><a href="/guides/multilogin-x-api-playwright/">API + Playwright guide</a></td>
                                 <td>Faster path from prototype to production controls</td>
                             </tr>
+                            <tr>
+                                <td>multilogin-x-getting-started</td>
+                                <td><a href="/guides/multilogin-x-getting-started-roadmap/">Getting started roadmap</a></td>
+                                <td>Clear first 14-day onboarding path with acceptance gates</td>
+                            </tr>
+                            <tr>
+                                <td>multilogin-automation and handbook examples</td>
+                                <td><a href="/guides/multilogin-x-script-runner-playbook/">Script runner playbook</a></td>
+                                <td>Batch execution guardrails and failure containment</td>
+                            </tr>
+                            <tr>
+                                <td>UI and API setup references across docs</td>
+                                <td><a href="/guides/workspace-id-and-token-setup-runbook/">Workspace and token setup runbook</a></td>
+                                <td>Cleaner access governance and audit-ready operations</td>
+                            </tr>
+                            <tr>
+                                <td>openMultiLogin repository cluster</td>
+                                <td><a href="/guides/openmultilogin-risk-and-migration-guide/">OpenMultiLogin risk and migration guide</a></td>
+                                <td>Lower migration debt with phased risk scoring model</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -170,6 +202,33 @@
                     <h3>Proxy Profile Bootstrap</h3>
                     <p>Profile-proxy matching, health gates, and fallback logic before any large-scale execution wave.</p>
                     <a href="/guides/proxy-profile-bootstrap-playbook/">Open proxy bootstrap playbook</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <p class="section-kicker">Wave 2 Operations Tracks</p>
+            <h2>Onboarding, Access, Execution, and Migration</h2>
+            <div class="grid-4">
+                <article class="card">
+                    <h3>Getting Started Roadmap</h3>
+                    <p>A 14-day sequence from setup baseline to first stable pilot.</p>
+                    <a href="/guides/multilogin-x-getting-started-roadmap/">Open roadmap</a>
+                </article>
+                <article class="card">
+                    <h3>Workspace and Token Setup</h3>
+                    <p>Access governance runbook for workspace IDs, user IDs, and token lifecycle controls.</p>
+                    <a href="/guides/workspace-id-and-token-setup-runbook/">Open setup runbook</a>
+                </article>
+                <article class="card">
+                    <h3>Script Runner Playbook</h3>
+                    <p>Batch payload contract, failure thresholds, and cohort quarantine strategy.</p>
+                    <a href="/guides/multilogin-x-script-runner-playbook/">Open script runner guide</a>
+                </article>
+                <article class="card">
+                    <h3>OpenMultiLogin Risk Guide</h3>
+                    <p>Migration framework for teams balancing fork flexibility against maintenance debt.</p>
+                    <a href="/guides/openmultilogin-risk-and-migration-guide/">Open migration guide</a>
                 </article>
             </div>
         </section>
@@ -212,6 +271,10 @@
                     <summary>Can this cluster work without the reference folder after publication?</summary>
                     <p>Yes. Once published, these pages are standalone website content and do not depend on that folder.</p>
                 </details>
+                <details>
+                    <summary>Where are the onboarding and migration guides in this cluster?</summary>
+                    <p>Use the getting started roadmap, workspace and token setup runbook, script runner playbook, and OpenMultiLogin risk guide.</p>
+                </details>
             </div>
         </section>
 
@@ -222,6 +285,10 @@
                     <a href="/guides/laravel-multilogin-sdk-playbook/">Laravel SDK playbook</a>
                     <a href="/guides/cookie-automation-runbook/">Cookie automation runbook</a>
                     <a href="/guides/proxy-profile-bootstrap-playbook/">Proxy profile bootstrap playbook</a>
+                    <a href="/guides/multilogin-x-getting-started-roadmap/">Getting started roadmap</a>
+                    <a href="/guides/workspace-id-and-token-setup-runbook/">Workspace and token setup runbook</a>
+                    <a href="/guides/multilogin-x-script-runner-playbook/">Script runner playbook</a>
+                    <a href="/guides/openmultilogin-risk-and-migration-guide/">OpenMultiLogin risk guide</a>
                     <a href="/guides/multilogin-x-api-playwright/">API plus Playwright guide</a>
                     <a href="/guides/antidetection-ops-sop/">Antidetection ops SOP</a>
                     <a href="/guides/connection-leak-tests/">Connection leak tests guide</a>
