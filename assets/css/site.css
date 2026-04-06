@@ -646,15 +646,55 @@ th {
 
 .site-footer {
   border-top: 1px solid var(--line);
-  padding: 2.4rem 0 3rem;
+  padding: 2.6rem 0 2rem;
   margin-top: 3rem;
-  background: rgba(0, 0, 0, 0.25);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.28), rgba(4, 12, 20, 0.55));
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr;
   gap: 1rem;
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1fr 1fr;
+  gap: 1rem 1.25rem;
+  align-items: start;
+}
+
+.footer-brand-block .logo {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand-block .small {
+  margin: 0.2rem 0;
+}
+
+.footer-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+}
+
+.footer-badges span {
+  display: inline-block;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-dim);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+}
+
+.footer-col {
+  min-width: 0;
 }
 
 .footer-title {
@@ -674,6 +714,38 @@ th {
 }
 
 .footer-links a:hover {
+  color: var(--primary-2);
+}
+
+.footer-bottom-row {
+  margin-top: 1.35rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-bottom-row .small {
+  margin: 0;
+}
+
+.footer-mini-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.9rem;
+}
+
+.footer-mini-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.footer-mini-links a:hover {
   color: var(--primary-2);
 }
 
@@ -723,6 +795,14 @@ code {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand-block {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 680px) {
@@ -740,6 +820,7 @@ code {
   .grid-3,
   .grid-4,
   .footer-grid,
+  .footer-top-grid,
   .intent-grid,
   .decision-grid,
   .score-grid {

@@ -1,31 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found (404) | SaaSVerdict</title>
-    <meta name="robots" content="noindex,follow">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/site.css">
-</head>
-<body>
-    <main class="container" style="padding: 5rem 0;">
-        <section class="panel" style="text-align: center;">
-            <span class="badge">Error 404</span>
-            <h1 style="margin-top: 1rem;">This page was moved or no longer exists</h1>
-            <p class="lead" style="margin-inline: auto;">Use one of the core hubs below to continue browsing guides, comparisons and tool resources.</p>
-            <div class="hero-actions" style="justify-content: center;">
-                <a class="btn btn-primary" href="/">Return to homepage</a>
-                <a class="btn btn-ghost" href="/tools/">Tools hub</a>
-                <a class="btn btn-ghost" href="/guides/">Guides hub</a>
-                <a class="btn btn-ghost" href="/compare/">Comparison hub</a>
-            </div>
-        </section>
-    </main>
+param(
+    [string]$Root = (Split-Path -Parent $PSScriptRoot)
+)
 
-        <footer class="site-footer">
+$ErrorActionPreference = 'Stop'
+
+$footerMarkup = @'
+    <footer class="site-footer">
         <div class="container footer-top-grid">
             <div class="footer-brand-block">
                 <a href="/" class="logo">SaaS<span>Verdict</span></a>
@@ -85,7 +65,39 @@
             </div>
         </div>
     </footer>
+'@
 
-    <script src="/assets/js/site.js" defer></script>
-</body>
-</html>
+$pattern = '(?is)<footer class="site-footer">.*?</footer>'
+
+$files = Get-ChildItem -Path $Root -Recurse -File -Filter '*.html' |
+    Where-Object {
+        $_.FullName -notmatch '\\assets\\' -and
+        $_.FullName -notmatch '\\distribution\\'
+    }
+
+$utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+$updated = 0
+$scanned = 0
+$skipped = 0
+
+foreach ($file in $files) {
+    $scanned++
+    $content = [System.IO.File]::ReadAllText($file.FullName)
+
+    if (-not [regex]::IsMatch($content, $pattern)) {
+        $skipped++
+        continue
+    }
+
+    $newContent = [regex]::Replace($content, $pattern, $footerMarkup, 1)
+
+    if ($newContent -ne $content) {
+        [System.IO.File]::WriteAllText($file.FullName, $newContent, $utf8NoBom)
+        $updated++
+    }
+}
+
+Write-Output ('scanned=' + $scanned)
+Write-Output ('updated=' + $updated)
+Write-Output ('skipped=' + $skipped)
+Write-Output ('root=' + $Root)

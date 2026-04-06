@@ -297,6 +297,45 @@
 				"$cnt=(git status --short -- assets/img | Measure-Object -Line).Lines; Write-Output (\"assets_img_changes=\" + $cnt)"
 			],
 			"isBackground": false
+		},
+		{
+			"label": "apply-global-footer",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				".\\distribution\\apply-global-footer.ps1"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "footer-change-summary",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-Command",
+				"$st = git status --short; $html = ($st | Select-String '\\.html$' | Measure-Object -Line).Lines; $css = ($st | Select-String '\\.css$' | Measure-Object -Line).Lines; $ps1 = ($st | Select-String '\\.ps1$' | Measure-Object -Line).Lines; Write-Output ('changed_html=' + $html); Write-Output ('changed_css=' + $css); Write-Output ('changed_ps1=' + $ps1);"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "footer-missing-pages",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-Command",
+				"$root=(Get-Location).Path; Get-ChildItem -Recurse -File -Filter *.html | Where-Object { $_.FullName -notmatch '\\\\assets\\\\' -and $_.FullName -notmatch '\\\\distribution\\\\' } | Where-Object { -not (Select-String -Path $_.FullName -Pattern '<footer class=\"site-footer\">' -Quiet) } | ForEach-Object { $_.FullName.Substring($root.Length + 1) }"
+			],
+			"isBackground": false
 		}
 	]
 }
