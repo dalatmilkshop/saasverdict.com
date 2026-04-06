@@ -58,6 +58,7 @@ $footerMarkup = @'
             <p class="small">&copy; <span data-year></span> SaaSVerdict. All rights reserved.</p>
             <div class="footer-mini-links">
                 <a href="/feeds/lab-updates.xml">Lab updates RSS</a>
+                <a href="/sitemap/">HTML sitemap</a>
                 <a href="/sitemap.xml">XML sitemap</a>
                 <a href="/tools/benchmark-release-checker/">Release checker</a>
                 <a href="/guides/">Guides</a>

@@ -336,6 +336,45 @@
 				"$root=(Get-Location).Path; Get-ChildItem -Recurse -File -Filter *.html | Where-Object { $_.FullName -notmatch '\\\\assets\\\\' -and $_.FullName -notmatch '\\\\distribution\\\\' } | Where-Object { -not (Select-String -Path $_.FullName -Pattern '<footer class=\"site-footer\">' -Quiet) } | ForEach-Object { $_.FullName.Substring($root.Length + 1) }"
 			],
 			"isBackground": false
+		},
+		{
+			"label": "generate-html-sitemap",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				".\\distribution\\generate-html-sitemap.ps1"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "apply-global-footer-v2",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				".\\distribution\\apply-global-footer.ps1"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "generate-html-sitemap",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				".\\distribution\\generate-html-sitemap.ps1"
+			],
+			"isBackground": false
 		}
 	]
 }
